@@ -1,5 +1,5 @@
 # CODOINGZONE
-A Django based web application for organising a competition between more than 50 teams belonging to different college in PARAKRAM 2018.
+A Django based web application for organising a competition between more than 50 teams belonging to different college.
 
 
 <h2>Requirements</h2>
@@ -16,7 +16,6 @@ A Django based web application for organising a competition between more than 50
   </ol>
   <h3>Currently time limit is 60 min,after that you are unable to submit answers.</h3>
   
-![1](https://user-images.githubusercontent.com/30490269/39091346-08570790-4610-11e8-9b00-75312686272c.png)
 ![2](https://user-images.githubusercontent.com/30490269/39091347-089d8f44-4610-11e8-987f-0cd8482dbbd0.png)
 ![3](https://user-images.githubusercontent.com/30490269/39091348-08c8d5aa-4610-11e8-83aa-20c4ecbaf170.png)
 ![4](https://user-images.githubusercontent.com/30490269/39091349-08f507ba-4610-11e8-8aa1-d0c3112ad30e.png)
