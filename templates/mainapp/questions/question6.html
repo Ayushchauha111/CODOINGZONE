@@ -1,0 +1,39 @@
+{% extends "mainapp/questions/basic.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container" style="margin-top:4%">
+      <center><h1>Question 6</h1></center>
+      {% if not part1complete %}
+      <h2>Task 1</h2>
+      <p>A hen, a dog, and a cat are stolen. Three suspects are arrested named Robin, Steve, and Tim. The police are sure that all of them stole one of the animals but they don't know who stole which animal. </p>
+      <p>Sherlock Holmes is appointed to identify and is provided with the following statements from the investigation. </p>
+      <p>Robin - Tim stole the hen</p>
+      <p>Steve - Tim stole the dog</p>
+      <p>Tim - Both Robin and Steve are lying. I neither stole hen, nor dog.</p>
+      <p>Sherlock is somehow able to deduce that the man who stole the cat is telling a lie and the man who stole the hen is telling truth.</p>
+      <p>Can you help him find out who stole which animal? and write in the box what steve stole.</p>
+      {% else %}
+      <h2>Task 2</h2>
+      <p>You reach goal when you change the scope of your vision.</p>
+      <!-- image changing code -->
+      <picture>
+        <source media="(min-width: 1000px)" srcset="{% static "images/imagesize1.png" %}">
+        <source media="(min-width: 1000px)" srcset="{% static "images/imagesize1.png" %}">
+        <img src="{% static "images/imagesize2.png" %}" alt="Flowers" style="width:auto;">
+      </picture>
+      <!-- -->
+      {% endif %}
+      <form class="form-group"  method="post">
+        {% csrf_token %}
+        <label for="answer"></label>
+        {% if not disabling %}
+        <input type="text" id="answer" name='answer' placeholder="Type your Answer here!!" value="{{ boxvalue }}">
+        <input type="Submit" class="btn btn-primary" value="Submit" >
+        {% else %}
+        <input type="text" id="answer" name='answer' disabled placeholder="Type your Answer here!!">
+        <input type="Submit" class="btn btn-primary" value="Submit" disabled>
+        {% endif %}
+        <h2>{{ result }}</h2>
+      </form>
+  </div>
+{% endblock %}

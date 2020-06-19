@@ -1,0 +1,17 @@
+{% extends 'mainapp/base.html' %}
+{% block body_block %}
+  {% if user.is_authenticated and user.is_active %}
+    <h1>Questions</h1>
+    <ul>
+      <a href="{% url 'mainapp:question1' %}"><li>Question1</li></a>
+      <a href="{% url 'mainapp:question2' %}"><li>Question2</li></a>
+      <a href="{% url 'mainapp:question3' %}"><li>Question3</li></a>
+      <a href="{% url 'mainapp:question4' %}"><li>Question4</li></a>
+      <a href="{% url 'mainapp:question5' %}"><li>Question5</li></a>
+      <a href="{% url 'mainapp:question6' %}"><li>Question6</li></a>
+    </ul>
+    <h1>{{ test }}</h1>
+  {% else %}
+    <h2>First You have to loggedIn.</h2>
+  {% endif %}
+{% endblock %}

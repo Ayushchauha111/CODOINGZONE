@@ -1,0 +1,30 @@
+{% extends "mainapp/questions/basic.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container" style="margin-top:4%">
+      <center><h1>Question 4</h1></center>
+      {% if not part1complete %}
+      <h2>Task 1</h2>
+      <p>Rearrange the letters</p>
+	    <p>O O U S W T D N E J R</p>
+	     <p>to spell just one word</p>
+      {% else %}
+      <h2>Task 2</h2>
+      <p>Can you decode this picture and tell me what it says ?</p>
+      <img src="{% static "images/delicious.jpg" %}"></image>
+      {% endif %}
+      <form class="form-group"  method="post">
+        {% csrf_token %}
+        <label for="answer"></label>
+        {% if not disabling %}
+        <input type="text" id="answer" name='answer' placeholder="Type your Answer here!!" value="{{ boxvalue }}">
+        <input type="Submit" class="btn btn-primary" value="Submit" >
+        {% else %}
+        <input type="text" id="answer" name='answer' disabled placeholder="Type your Answer here!!">
+        <input type="Submit" class="btn btn-primary" value="Submit" disabled>
+        {% endif %}
+        <h2>{{ result }}</h2>
+      </form>
+      <center><a class="btn btn-primary" target="_blank" href="{% url "mainapp:bonuspage" %}">Bonus</a></center>
+  </div>
+{% endblock %}

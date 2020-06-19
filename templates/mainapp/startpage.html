@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/startuppage.css" %}">
+    <title>Ciphertech</title>
+    <style>
+      body{
+        background-image:url({% static 'images/final1.png' %});
+        background-size: cover;
+        height:auto;
+      }
+      /*img:hover{
+        -moz-box-shadow:    3px 3px 5px 6px #ccc;
+        -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+        box-shadow:         3px 3px 5px 6px #ccc;
+      }*/
+      .button1{
+        margin-top:35%;
+        margin-left: 15%;
+      }
+      img{
+        margin-bottom: 2%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="bodydiv">
+    <a href="{% url 'signup' %}" class="transition">
+    <div class="center-wrap">
+    	<div class="button">
+    		Start The Experience <span class="shift">›</span>
+    		<div class="mask"></div>
+    	</div>
+    </div></a>
+  </div>-->
+  <div class="button1">
+    <a href="{% url "signup" %}"><img src="{% static "images/button.png" %}" alt="button" width="7%"></a>
+    <br>
+    <img src="{% static "images/alohomora.png" %}" width="200px" height="100px">
+  </div>
+ </body>
+</html>

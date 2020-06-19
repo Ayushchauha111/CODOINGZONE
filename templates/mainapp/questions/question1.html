@@ -1,0 +1,30 @@
+{% extends "mainapp/questions/basic.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container" style="margin-top:4%">
+      <center><h1>Question 1</h1></center>
+      {% if not part1complete %}
+      <h2>Task 1</h2>
+      <p><strong>Complete this Sentence:-</strong></p>
+	     <p>"Don't C your C before they H"</p>
+      {% else %}
+      <h2>Task 2</h2>
+      <p>I have keys, but do not lock</p>
+    	<p>I have space, but have no room</p>
+    	<p>You can enter, but can't come in.</p>
+    	<p>What am I?</p>
+      {% endif %}
+      <form class="form-group"  method="post">
+        {% csrf_token %}
+        <label for="answer"></label>
+        {% if not disabling %}
+        <input type="text" id="answer" name='answer' placeholder="Type your Answer here!!" value="{{ boxvalue }}">
+        <input type="Submit" class="btn btn-primary" value="Submit" >
+        {% else %}
+        <input type="text" id="answer" name='answer' disabled placeholder="Type your Answer here!!">
+        <input type="Submit" class="btn btn-primary" value="Submit" disabled>
+        {% endif %}
+        <h2>{{ result }}</h2>
+      </form>
+  </div>
+{% endblock %}

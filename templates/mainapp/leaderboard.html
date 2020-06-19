@@ -1,0 +1,40 @@
+{% extends 'mainapp/base.html' %}
+{% load my_extras %}
+{% block head_block %}
+<style>
+  th,td{
+    width:200px;
+  }
+  .contentdiv{
+    background-color: black;
+    color:#20C20E;
+  }
+  thead{
+    color:white;
+  }
+</style>
+{% endblock %}
+
+{% block body_block %}
+  <center><h1 style="color:white">Leaderboard</h1><center>
+  {% if teamlist %}
+  <table>
+    <thead>
+      <th>Rank</th>
+      <th>Team Name</th>
+      <th>Total Score</th>
+      <th>Total Time</th>
+    </thead>
+    {% for team_object in teamlist %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ team_object.team.username }}</td>
+      <td>{{ team_object.totalscore }}</td>
+      <td>{{ team_object.total_time }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <h2>No team registered yet.</h2>
+  {% endif %}
+{% endblock %}

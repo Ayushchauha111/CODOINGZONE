@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bonus Page</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <style>
+  a{
+    color:black;
+  }
+  a:hover{
+    cursor: default;
+    text-decoration: none;
+    color:black;
+  }
+  </style>
+  </head>
+  <body>
+    <center><h1>BONUS<sup><a href="{% url "terms" %}" target="_blank">*</a></sup></h1></center>
+    <div class="container">
+    <div class="jumbotron">
+      <h2>Write what's in your mind:</h2>
+       <form class="form-group" method="post">
+         {% csrf_token %}
+         <input type="text" name="bonus" placeholder="Text your ans">
+         <input type="submit" value="Submit">
+         <h3>{{ result }}</h3>
+         <h3>{{ bonus_string }}</h3>
+       </form>
+    </div>
+  </div>
+  </body>
+</html>

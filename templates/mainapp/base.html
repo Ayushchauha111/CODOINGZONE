@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ciphertech</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basecss.css' %}">
+    {% block head_block %}
+    {% endblock %}
+  </head>
+  <body style="  background:url({% static 'images/final2.jpg' %})">
+    <nav class="navbar navbar-expand-lg navbar-inverse">
+  <a class="navbar-brand" href="{% url 'mainapp:instruction'%}" style="color:white">Instructions</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {% if not user.is_authenticated or not user.is_active %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'mainapp:login' %}" style="color:white">LogIn</a>
+      </li>
+      {% endif %}
+      {% if user.is_authenticated and user.is_active %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+          QUESTIONS
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:black">
+          <a class="dropdown-item" href="{% url 'mainapp:question1' %}" style="color:#37798f">Question 1</a>
+          <a class="dropdown-item" href="{% url 'mainapp:question2' %}" style="color:#37798f">Question 2</a>
+          <a class="dropdown-item" href="{% url 'mainapp:question3' %}" style="color:#37798f">Question 3</a>
+          <a class="dropdown-item" href="{% url 'mainapp:question4' %}" style="color:#37798f">Question 4</a>
+          <a class="dropdown-item" href="{% url 'mainapp:question5' %}" style="color:#37798f">Question 5</a>
+          <a class="dropdown-item" href="{% url 'mainapp:question6' %}" style="color:#37798f">Question 6</a>
+        </div>
+      </li>
+      {% endif %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'mainapp:leaderboard' %}" style="color:white">Leaderboard</a>
+        </li>
+        </ul>
+        <!-- {% if user.is_authenticated and user.is_active %}
+        <span class="mr-sm-2" style="color:white">
+          <b>{{ user.username }}</b>
+        </span>
+        {% endif %} -->
+      </div>
+    </nav>
+    {% if user.is_authenticated and user.is_active %}
+    <span style="color:white">
+      <center><h1>Team: {{ user.username }}</h1></center>
+    </span>
+    {% endif %}
+  <div class="container contentdiv" style="margin-top:4%">
+    {% block body_block %}
+    {% endblock %}
+  </body>
+  <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/collapse.min.js' %}"></script>
+</html>
